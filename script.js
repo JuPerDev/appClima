@@ -10,6 +10,13 @@ document.getElementById('botonBusqueda').addEventListener('click', () => {
     }
 })
 
+function pressEnter(event){
+    if(event.key === 'Enter'){
+        event.preventDefault();
+        document.getElementById('botonBusqueda').click();
+    }
+}
+
 function fetchWeatherData(city){
     fetch(`${urlBase}?q=${city}&lang=${lang}&appid=${API_KEY}&units=metric`)
     .then(data => data.json())
